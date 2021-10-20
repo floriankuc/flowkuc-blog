@@ -1,0 +1,30 @@
+{
+  "env": {
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": ["react", "@typescript-eslint"],
+  "rules": {
+    "react/prop-types": 0,
+    "react/no-unescaped-entities": 0,
+    "react/jsx-closing-bracket-location": 1,
+    "react/jsx-wrap-multilines": 2,
+    "react/no-array-index-key": 1,
+    "react/no-string-refs": ["error", { "noTemplateLiterals": true }],
+    "react/require-render-return": 1,
+    "react/no-is-mounted": 2,
+    "react/self-closing-comp": ["error", { "component": true, "html": true }]
+  }
+}
