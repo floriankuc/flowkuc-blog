@@ -1,13 +1,13 @@
 import { Link } from "gatsby"
 import React, { ReactElement } from "react"
-import Head from "../components/Head"
 import Layout from "../components/Layout"
 
-export default function Home(): ReactElement {
+const NotFound = (): ReactElement => {
   return (
     <Layout>
-      <Head title="Home" />
-      home
+      <Link to="/">back</Link>
     </Layout>
   )
 }
+
+export default NotFound
