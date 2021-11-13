@@ -1,9 +1,8 @@
-import { Link } from "gatsby"
 import React, { ReactElement } from "react"
-import Head from "../components/Head"
+import Head from "../components/Head/Head"
 import Layout from "../components/Layout"
 
-export default function Home(): ReactElement {
+const Home = (): ReactElement => {
   return (
     <Layout>
       <Head title="Home" />
@@ -11,3 +10,5 @@ export default function Home(): ReactElement {
     </Layout>
   )
 }
+
+export default Home

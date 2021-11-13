@@ -1,13 +1,13 @@
-import React, { Component } from "react"
+import React, { ReactElement } from "react"
 import Footer from "../components/Footer"
 
-export default class About extends Component {
-  render() {
-    return (
-      <div>
-        about
-        <Footer />
-      </div>
-    )
-  }
+const About = (): ReactElement => {
+  return (
+    <div>
+      about
+      <Footer />
+    </div>
+  )
 }
+
+export default About

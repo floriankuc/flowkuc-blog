@@ -1,16 +1,19 @@
-import React, { Component } from "react"
+import React, { PropsWithChildren, ReactElement, ReactNode } from "react"
+import GlobalStyles from "../styles/GlobalStyles"
 import Footer from "./Footer"
 
-export default class Layout extends Component {
-  render() {
-    return (
-      <div>
-        {this.props.children}
-        <Footer />
-      </div>
-    )
-  }
+const Layout = ({
+  children,
+}: PropsWithChildren<{ children: ReactNode }>): ReactElement => {
+  return (
+    <>
+      <GlobalStyles />
+      {children}
+      <Footer />
+    </>
+  )
 }
 
-//todo emotion
+export default Layout
+
 //change the 'develop' command to "env-cmd -f .env.development gatsby develop"

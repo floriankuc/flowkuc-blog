@@ -1,14 +1,14 @@
 /** @jsx jsx */
 import { css, jsx } from "@emotion/react"
-import React, { Component } from "react"
+import React, { ReactElement } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import styled from "@emotion/styled"
 
 interface FooterProps {
-  light: string
+  light?: string
 }
 
-const Footer = ({ light }: FooterProps) => {
+const Footer = ({ light }: FooterProps): ReactElement => {
   const data = useStaticQuery(graphql`
     query {
       site {
@@ -21,6 +21,8 @@ const Footer = ({ light }: FooterProps) => {
 
   return (
     <>
+      <h1 style={{ margin: 0 }}>dsf</h1>
+
       <StyledFooter light={light}>
         footer, {data.site.siteMetadata.title}
       </StyledFooter>
@@ -43,9 +45,9 @@ const Footer = ({ light }: FooterProps) => {
 }
 
 const StyledFooter = styled.footer<FooterProps>`
-  background-color: ${(props): string => props.light};
+  background-color: ${(props): string => props.theme.color.positive || "white"};
   font-family: "open_sans";
-  font-weight: bold;
+  font-weight: 400;
 `
 
 export default Footer

@@ -3,15 +3,20 @@
   src: local("Open Sans"), local("OpenSans"), local("Opensans"),
     local("opensans"), local("open_sans"),
     url("./OpenSans-Regular-webfont.woff") format("woff");
-  font-weight: normal;
+  font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: "open_sans";
-  src: local("Open Sans"), local("OpenSans"), local("Opensans"),
-    local("opensans"), local("open_sans"),
-    url("OpenSans-Bold-webfont.woff") format("woff");
-  font-weight: bold;
+  src: url("./OpenSans-Bold-webfont.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "open_sans";
+  src: url("./OpenSans-ExtraBold-webfont.woff") format("woff");
+  font-weight: 900;
   font-style: normal;
 }

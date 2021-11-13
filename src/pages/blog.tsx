@@ -1,9 +1,9 @@
-import React, { Component } from "react"
+import React, { ReactElement } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import Layout from "../components/Layout"
 import { Link } from "gatsby"
 
-const BlogPage = () => {
+const BlogPage = (): ReactElement => {
   const data = useStaticQuery(graphql`
     query {
       allMarkdownRemark {
