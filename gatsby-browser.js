@@ -2,7 +2,10 @@ import "./src/fonts/fontFaces.css"
 import React from "react"
 import { ThemeProvider } from "@emotion/react"
 import { theme } from "./src/styles/theme"
+import Layout from "./src/components/Layout"
 
 export const wrapRootElement = ({ element }) => (
-  <ThemeProvider theme={theme}>{element}</ThemeProvider>
+  <ThemeProvider theme={theme}>
+    <Layout>{element}</Layout>
+  </ThemeProvider>
 )

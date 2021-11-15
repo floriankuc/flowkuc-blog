@@ -27,10 +27,28 @@ const Baseline = (): ReactElement => (
         text-rendering: optimizeSpeed;
         line-height: 1.5;
         background-color: ${theme.color.primary};
+        overflow-y: scroll;
+      }
+
+      #___gatsby {
+        height: 100vh;
       }
 
       a:not([class]) {
         text-decoration-skip-ink: auto;
+      }
+
+      svg {
+        fill: #ffffff;
+      }
+
+      a {
+        color: ${theme.color.accent};
+        text-decoration: none;
+
+        &:hover {
+          box-shadow: inset 0 -3px 0 0 ${theme.color.accent};
+        }
       }
 
       img,

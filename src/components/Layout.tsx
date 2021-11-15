@@ -1,6 +1,8 @@
 import React, { PropsWithChildren, ReactElement, ReactNode } from "react"
 import GlobalStyles from "../styles/GlobalStyles"
+import Container from "./Container"
 import Footer from "./Footer"
+import Header from "./Header"
 
 const Layout = ({
   children,
@@ -8,8 +10,19 @@ const Layout = ({
   return (
     <>
       <GlobalStyles />
-      {children}
-      <Footer />
+      <Container>
+        <Header />
+        <main
+          style={{
+            // background: "red",
+            flex: 1,
+            minHeight: "calc(100vh - 200px)",
+          }}
+        >
+          {children}
+        </main>
+        <Footer />
+      </Container>
     </>
   )
 }

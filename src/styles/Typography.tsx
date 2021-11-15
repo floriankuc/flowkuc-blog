@@ -19,6 +19,14 @@ export default function Typography() {
           font-weight: 400;
           text-rendering: optimizeLegibility;
           color: ${theme.color.positive};
+          font-size: 1.1rem;
+          line-height: 1.6;
+        }
+
+        h1 {
+          font-size: 3.5rem;
+          font-weight: 900;
+          margin: 2.5rem 0;
         }
       `}
     />

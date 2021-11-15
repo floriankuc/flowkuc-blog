@@ -1,53 +1,59 @@
 /** @jsx jsx */
 import { css, jsx } from "@emotion/react"
-import React, { ReactElement } from "react"
-import { graphql, useStaticQuery } from "gatsby"
 import styled from "@emotion/styled"
+import { graphql, Link, useStaticQuery } from "gatsby"
+import { ReactElement } from "react"
+import { theme } from "../styles/theme"
+import { FOOTERLINKS } from "../content/links"
 
-interface FooterProps {
-  light?: string
-}
-
-const Footer = ({ light }: FooterProps): ReactElement => {
+const Footer = (): ReactElement => {
   const data = useStaticQuery(graphql`
     query {
       site {
         siteMetadata {
           title
+          author
         }
       }
     }
   `)
 
   return (
-    <>
-      <h1 style={{ margin: 0 }}>dsf</h1>
-
-      <StyledFooter light={light}>
-        footer, {data.site.siteMetadata.title}
-      </StyledFooter>
-      <footer
+    <StyledFooter>
+      <div
         css={css`
-          background-color: orange;
+          margin-bottom: 8px;
         `}
       >
-        footer2
-      </footer>
-      <footer
-        css={{
-          backgroundColor: "orange",
-        }}
-      >
-        footer3
-      </footer>
-    </>
+        {FOOTERLINKS.map(link => (
+          <StyledLink key={link.title} to={link.to}>
+            {link.icon}
+          </StyledLink>
+        ))}
+      </div>
+      © {new Date().getFullYear()}, {data.site.siteMetadata.author}
+    </StyledFooter>
   )
 }
 
-const StyledFooter = styled.footer<FooterProps>`
-  background-color: ${(props): string => props.theme.color.positive || "white"};
-  font-family: "open_sans";
-  font-weight: 400;
+const StyledLink = styled(Link)`
+  margin: 8px;
+
+  &:hover {
+    box-shadow: none;
+    svg {
+      fill: ${theme.color.accent};
+    }
+  }
+`
+
+const StyledFooter = styled.footer`
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  height: 100;
+  font-size: 0.75rem;
+  padding-bottom: 12px;
 `
 
 export default Footer
