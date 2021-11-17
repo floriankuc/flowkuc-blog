@@ -1,6 +1,6 @@
-import React, { ReactElement } from "react"
-import { Global, css } from "@emotion/react"
-import { theme } from "./theme"
+import React, { ReactElement } from "react";
+import { Global, css } from "@emotion/react";
+import { theme } from "./theme";
 
 const Baseline = (): ReactElement => (
   <Global
@@ -45,6 +45,7 @@ const Baseline = (): ReactElement => (
       a {
         color: ${theme.color.accent};
         text-decoration: none;
+        font-weight: 700;
 
         &:hover {
           box-shadow: inset 0 -3px 0 0 ${theme.color.accent};
@@ -80,6 +81,6 @@ const Baseline = (): ReactElement => (
       }
     `}
   />
-)
+);
 
-export default Baseline
+export default Baseline;

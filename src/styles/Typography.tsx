@@ -1,8 +1,8 @@
-import React from "react"
-import { Global, css } from "@emotion/react"
-import { theme } from "./theme"
+import React, { ReactElement } from "react";
+import { Global, css } from "@emotion/react";
+import { theme } from "./theme";
 
-export default function Typography() {
+const Typography = (): ReactElement => {
   return (
     <Global
       styles={css`
@@ -26,9 +26,11 @@ export default function Typography() {
         h1 {
           font-size: 3.5rem;
           font-weight: 900;
-          margin: 2.5rem 0;
+          margin: 3.5rem 0;
         }
       `}
     />
-  )
-}
+  );
+};
+
+export default Typography;

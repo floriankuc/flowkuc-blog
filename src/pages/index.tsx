@@ -1,11 +1,11 @@
-import { Link } from "gatsby"
-import React, { ReactElement } from "react"
-import Head from "../components/Head"
-import TechTags from "../components/TechTags"
-import { OTHER_LINKS } from "../content/links"
+import { Link } from "gatsby";
+import React, { ReactElement } from "react";
+import Head from "../components/Head";
+import TechTags from "../components/TechTags";
+import { OTHER_LINKS } from "../content/links";
 
 const Home = (): ReactElement => {
-  const { employer, stackshare } = OTHER_LINKS
+  const { employer, stackshare } = OTHER_LINKS;
 
   return (
     <>
@@ -16,20 +16,20 @@ const Home = (): ReactElement => {
         web applications and websites. Furthermore, I am an avid learner and
         always looking into new technologies that catch my attention. I am
         currently working on various front end related projects at{" "}
-        <Link to={employer.to}>Bookingtime</Link> on a daily basis. Main
+        <a href={employer.to}>Bookingtime</a> on a daily basis. Main
         technologies I work with are:
       </p>
       <TechTags />
       <p>
         A more detailed breakdown of my stack can be found on{" "}
-        <Link to={stackshare.to}>{stackshare.title}</Link>.
+        <a href={stackshare.to}>{stackshare.title}</a>.
       </p>
       {/* emailjs com here */}
     </>
-  )
-}
+  );
+};
 
 //Currently reading box
 //currently learning box
 
-export default Home
+export default Home;

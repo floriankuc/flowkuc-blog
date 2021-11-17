@@ -1,12 +1,14 @@
-import React from "react"
-import Typography from "./Typography"
-import Baseline from "./Baseline"
+import React, { ReactElement } from "react";
+import Typography from "./Typography";
+import Baseline from "./Baseline";
 
-export default function GlobalStyles() {
+const GlobalStyles = (): ReactElement => {
   return (
     <>
       <Baseline />
       <Typography />
     </>
-  )
-}
+  );
+};
+
+export default GlobalStyles;

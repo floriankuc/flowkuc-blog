@@ -1,8 +1,8 @@
-import React, { PropsWithChildren, ReactElement, ReactNode } from "react"
-import GlobalStyles from "../styles/GlobalStyles"
-import Container from "./Container"
-import Footer from "./Footer"
-import Header from "./Header"
+import React, { PropsWithChildren, ReactElement, ReactNode } from "react";
+import GlobalStyles from "../styles/GlobalStyles";
+import Container from "./Container";
+import Footer from "./Footer";
+import Header from "./Header";
 
 const Layout = ({
   children,
@@ -14,7 +14,7 @@ const Layout = ({
         <Header />
         <main
           style={{
-            // background: "red",
+            padding: "50px 0",
             flex: 1,
             minHeight: "calc(100vh - 200px)",
           }}
@@ -24,9 +24,9 @@ const Layout = ({
         <Footer />
       </Container>
     </>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;
 
 //change the 'develop' command to "env-cmd -f .env.development gatsby develop"

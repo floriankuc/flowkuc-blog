@@ -1,10 +1,10 @@
 /** @jsx jsx */
-import { css, jsx } from "@emotion/react"
-import styled from "@emotion/styled"
-import { graphql, Link, useStaticQuery } from "gatsby"
-import { ReactElement } from "react"
-import { theme } from "../styles/theme"
-import { FOOTERLINKS } from "../content/links"
+import { css, jsx } from "@emotion/react";
+import styled from "@emotion/styled";
+import { graphql, useStaticQuery } from "gatsby";
+import { ReactElement } from "react";
+import { theme } from "../styles/theme";
+import { FOOTERLINKS } from "../content/links";
 
 const Footer = (): ReactElement => {
   const data = useStaticQuery(graphql`
@@ -16,7 +16,7 @@ const Footer = (): ReactElement => {
         }
       }
     }
-  `)
+  `);
 
   return (
     <StyledFooter>
@@ -26,17 +26,17 @@ const Footer = (): ReactElement => {
         `}
       >
         {FOOTERLINKS.map(link => (
-          <StyledLink key={link.title} to={link.to}>
+          <StyledLink key={link.title} href={link.to}>
             {link.icon}
           </StyledLink>
         ))}
       </div>
       © {new Date().getFullYear()}, {data.site.siteMetadata.author}
     </StyledFooter>
-  )
-}
+  );
+};
 
-const StyledLink = styled(Link)`
+const StyledLink = styled.a`
   margin: 8px;
 
   &:hover {
@@ -45,7 +45,7 @@ const StyledLink = styled(Link)`
       fill: ${theme.color.accent};
     }
   }
-`
+`;
 
 const StyledFooter = styled.footer`
   display: flex;
@@ -54,6 +54,6 @@ const StyledFooter = styled.footer`
   height: 100;
   font-size: 0.75rem;
   padding-bottom: 12px;
-`
+`;
 
-export default Footer
+export default Footer;
