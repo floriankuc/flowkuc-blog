@@ -38,6 +38,12 @@ const Baseline = (): ReactElement => (
         text-decoration-skip-ink: auto;
       }
 
+      hr {
+        height: 2px;
+        color: ${theme.color.secondary};
+        margin: 52px 0;
+      }
+
       svg {
         fill: #ffffff;
       }

@@ -1,7 +1,7 @@
 /** @jsx jsx */
-import { jsx } from "@emotion/react"
-import { PropsWithChildren, ReactElement, ReactNode } from "react"
-import { mq } from "../utils/breakpoints"
+import { jsx } from "@emotion/react";
+import { PropsWithChildren, ReactElement, ReactNode } from "react";
+import { mq } from "../utils/breakpoints";
 
 const Container = ({
   children,
@@ -20,12 +20,18 @@ const Container = ({
         width: "70%",
       },
       [mq.xl]: {
+        width: "60%",
+      },
+      [mq.xxl]: {
         width: "50%",
+      },
+      [mq.wow]: {
+        width: "40%",
       },
     }}
   >
     {children}
   </div>
-)
+);
 
-export default Container
+export default Container;

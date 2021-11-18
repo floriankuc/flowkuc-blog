@@ -31,7 +31,7 @@ const Projects = (): ReactElement => {
         css={css`
           display: grid;
           grid-template-columns: 100%;
-          gap: 32px;
+          gap: 52px;
         `}
       >
         <p>
@@ -39,12 +39,9 @@ const Projects = (): ReactElement => {
           <a href={FOOTERLINKS.find(l => l.title === "Github")?.to}>
             Github profile
           </a>
-          .
-        </p>
-        <p>
-          They are generally work in progress. Some are on the verge of
-          completion, others I may have abandoned in the light of something more
-          captivating.
+          . They are generally work in progress. Some on the verge of
+          completion, others I may have abandoned entirely in the light of
+          something more captivating. 😇
         </p>
         {renderProjects(projects)}
       </div>

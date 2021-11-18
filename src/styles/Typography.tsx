@@ -24,7 +24,7 @@ const Typography = (): ReactElement => {
         }
 
         h1 {
-          font-size: 3.5rem;
+          font-size: 4rem;
           font-weight: 900;
           margin: 3.5rem 0;
         }

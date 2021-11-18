@@ -1,4 +1,3 @@
-import { Link } from "gatsby";
 import React, { ReactElement } from "react";
 import Head from "../components/Head";
 import TechTags from "../components/TechTags";
@@ -10,7 +9,7 @@ const Home = (): ReactElement => {
   return (
     <>
       <Head title="Home" />
-      <h1>Hi, I'm Florian,</h1>
+      <h1>Hi, I'm Florian</h1>
       <p>
         a web dev based in Hamburg, Germany. I enjoy creating and maintaining
         web applications and websites. Furthermore, I am an avid learner and
@@ -24,7 +23,25 @@ const Home = (): ReactElement => {
         A more detailed breakdown of my stack can be found on{" "}
         <a href={stackshare.to}>{stackshare.title}</a>.
       </p>
-      {/* emailjs com here */}
+      <hr />
+      <h2 style={{ fontWeight: 900, fontSize: "2rem", marginBottom: 32 }}>
+        Get in touch
+      </h2>
+      <p>
+        I'd be delighted to hear from you regarding open source projects,
+        business opportunities or feedback on my articles (especially if you
+        know better!). Just drop me a line.
+      </p>
+
+      {/* emailjs com here, von floriankuc nehmen inkl. modal für box, validation, form etc */}
+      {/* <Modal
+            isOpen={messageShow}
+            onRequestClose={closeModal}
+            style={modalStyles}
+          >
+            <p>Message sent</p>
+            <Button onClick={closeModal}>Nice</Button>
+          </Modal> */}
     </>
   );
 };
