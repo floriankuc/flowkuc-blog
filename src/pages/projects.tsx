@@ -27,24 +27,28 @@ const Projects = (): ReactElement => {
 
   if (isSuccess && projects.length) {
     return (
-      <div
-        css={css`
-          display: grid;
-          grid-template-columns: 100%;
-          gap: 52px;
-        `}
-      >
-        <p>
-          These are side projects I have worked on outside work, sourced from my{" "}
-          <a href={FOOTERLINKS.find(l => l.title === "Github")?.to}>
-            Github profile
-          </a>
-          . They are generally work in progress. Some on the verge of
-          completion, others I may have abandoned entirely in the light of
-          something more captivating. 😇
-        </p>
-        {renderProjects(projects)}
-      </div>
+      <>
+        <h1>Projects</h1>
+        <div
+          css={css`
+            display: grid;
+            grid-template-columns: 100%;
+            gap: 52px;
+          `}
+        >
+          <p>
+            These are side projects I have worked on outside work, sourced from
+            my{" "}
+            <a href={FOOTERLINKS.find(l => l.title === "Github")?.to}>
+              Github profile
+            </a>
+            . They are generally work in progress. Some on the verge of
+            completion, others I may have abandoned entirely in the light of
+            something more captivating. 😇
+          </p>
+          {renderProjects(projects)}
+        </div>
+      </>
     );
   } else if (isLoading) {
     return <Loading />;

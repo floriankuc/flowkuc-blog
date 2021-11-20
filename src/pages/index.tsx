@@ -1,5 +1,5 @@
 import { send } from "emailjs-com";
-import { Field, Form, Formik, FormikErrors } from "formik";
+import { Form, Formik, FormikErrors } from "formik";
 import React, {
   ReactElement,
   ReactNode,
@@ -14,7 +14,7 @@ import { OTHER_LINKS } from "../content/links";
 import { validationSchema } from "../utils/validationSchema";
 import Email from "../icons/Email";
 import Input from "../components/Input";
-import Notification from "../components/Notification";
+import { theme } from "../styles/theme";
 
 export interface FormValues extends Record<string, string> {
   name: string;
@@ -29,14 +29,23 @@ const Home = (): ReactElement => {
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState<unknown>();
+  const [displayNotification, setDisplayNotification] = useState(false);
 
-  // useEffect(() => {
+  useEffect(() => {
+    if (isSuccess) {
+      setDisplayNotification(true);
+    }
+  }, [isSuccess]);
 
-  // })
-  //handle success
-  //memoize projects
-  //reset form
-  //handle feedback
+  useEffect(() => {
+    console.log(displayNotification);
+    if (displayNotification) {
+      setTimeout(() => {
+        setIsSuccess(false);
+        setDisplayNotification(false);
+      }, 2000);
+    }
+  }, [displayNotification]);
 
   const sendEmail = async (values: FormValues) => {
     setIsLoading(true);
@@ -49,6 +58,9 @@ const Home = (): ReactElement => {
       );
       if (res.status === 200) {
         setIsSuccess(true);
+        if (formRef.current) {
+          formRef.current.reset();
+        }
       }
       console.log(res);
     } catch (err) {
@@ -74,7 +86,6 @@ const Home = (): ReactElement => {
 
   return (
     <>
-      <Notification message={"Mail sent"} />
       <Head title="Home" />
       <h1>Hi, I'm Florian</h1>
       <p>
@@ -146,9 +157,27 @@ const Home = (): ReactElement => {
               placeholder="Your message"
               as="textarea"
             />
-            <Button type="submit" loading={isLoading} icon={<Email />}>
-              Send
-            </Button>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              <Button type="submit" loading={isLoading} icon={<Email />}>
+                Send
+              </Button>
+              {displayNotification && (
+                <p
+                  style={{
+                    color: theme.color.accent,
+                    fontWeight: 700,
+                    marginLeft: 20,
+                  }}
+                >
+                  Thanks for your message!
+                </p>
+              )}
+            </div>
             {/* <pre>{JSON.stringify(values, null, 2)}</pre> */}
             {/* <pre>{JSON.stringify(errors, null, 2)}</pre> */}
             {displayErrors(errors)}
