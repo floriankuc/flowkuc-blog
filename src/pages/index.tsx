@@ -1,13 +1,80 @@
-import React, { ReactElement } from "react";
+import { send } from "emailjs-com";
+import { Field, Form, Formik, FormikErrors } from "formik";
+import React, {
+  ReactElement,
+  ReactNode,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
+import Button from "../components/Button";
 import Head from "../components/Head";
 import TechTags from "../components/TechTags";
 import { OTHER_LINKS } from "../content/links";
+import { validationSchema } from "../utils/validationSchema";
+import Email from "../icons/Email";
+import Input from "../components/Input";
+import Notification from "../components/Notification";
+
+export interface FormValues extends Record<string, string> {
+  name: string;
+  email: string;
+  body: string;
+}
 
 const Home = (): ReactElement => {
   const { employer, stackshare } = OTHER_LINKS;
+  const formRef = useRef<HTMLFormElement>(null);
+
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [error, setError] = useState<unknown>();
+
+  // useEffect(() => {
+
+  // })
+  //handle success
+  //memoize projects
+  //reset form
+  //handle feedback
+
+  const sendEmail = async (values: FormValues) => {
+    setIsLoading(true);
+    try {
+      const res = await send(
+        process.env.GATSBY_EMAIL_RECEIVER as string,
+        process.env.GATSBY_EMAIL_TEMPLATEID as string,
+        values,
+        process.env.GATSBY_EMAIL_USERID as string
+      );
+      if (res.status === 200) {
+        setIsSuccess(true);
+      }
+      console.log(res);
+    } catch (err) {
+      setError(error);
+      console.log(err);
+    }
+    setIsLoading(false);
+  };
+
+  const displayErrors = (errors: FormikErrors<FormValues>): ReactNode => {
+    return (
+      <div>
+        {errors.email === "Invalid email format." && (
+          <p className="error">{errors.email}</p>
+        )}
+        {Object.values(errors).some(
+          err => err === "Your message is required"
+        ) && <p className="error">Please complete all fields.</p>}
+        {console.log(Object.values(errors))}
+      </div>
+    );
+  };
 
   return (
     <>
+      <Notification message={"Mail sent"} />
       <Head title="Home" />
       <h1>Hi, I'm Florian</h1>
       <p>
@@ -28,20 +95,66 @@ const Home = (): ReactElement => {
         Get in touch
       </h2>
       <p>
-        I'd be delighted to hear from you regarding open source projects,
-        business opportunities or feedback on my articles (especially if you
-        know better!). Just drop me a line.
+        I'd be delighted to hear from you regarding open source projects or
+        business opportunities. Just drop me a line.
       </p>
 
-      {/* emailjs com here, von floriankuc nehmen inkl. modal für box, validation, form etc */}
-      {/* <Modal
-            isOpen={messageShow}
-            onRequestClose={closeModal}
-            style={modalStyles}
+      {/* toast wenn message sent */}
+      <Formik
+        initialValues={{
+          name: "",
+          email: "",
+          body: "",
+        }}
+        validationSchema={validationSchema}
+        onSubmit={(values): Promise<void> => sendEmail(values)}
+        validateOnChange={false}
+        validateOnBlur={false}
+        // onSubmit={async (values, { resetForm }) => {
+        //   // const res: EmailJSResponseStatus = await sendEmail(
+        //   //   values.name,
+        //   //   values.email,
+        //   //   values.body
+        //   // );
+        //   // console.log("res", res);
+        //   // (res.status === 200 && handleMessageSuccess()) ||
+        //   // handleMessageError(res);
+        //   resetForm();
+        // }}
+      >
+        {({ values, errors, isSubmitting, resetForm }) => (
+          <Form
+            noValidate
+            ref={formRef}
+            style={{
+              display: "grid",
+              justifyItems: "start",
+              gap: "32px",
+              margin: "52px 0",
+            }}
           >
-            <p>Message sent</p>
-            <Button onClick={closeModal}>Nice</Button>
-          </Modal> */}
+            <Input id="name" name="name" placeholder="You" />
+            <Input
+              id="email"
+              name="email"
+              placeholder="Your email"
+              type="email"
+            />
+            <Input
+              id="body"
+              name="body"
+              placeholder="Your message"
+              as="textarea"
+            />
+            <Button type="submit" loading={isLoading} icon={<Email />}>
+              Send
+            </Button>
+            {/* <pre>{JSON.stringify(values, null, 2)}</pre> */}
+            {/* <pre>{JSON.stringify(errors, null, 2)}</pre> */}
+            {displayErrors(errors)}
+          </Form>
+        )}
+      </Formik>
     </>
   );
 };

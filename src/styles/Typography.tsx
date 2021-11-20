@@ -28,6 +28,11 @@ const Typography = (): ReactElement => {
           font-weight: 900;
           margin: 3.5rem 0;
         }
+
+        .error {
+          color: #ff2424;
+          font-weight: 700;
+        }
       `}
     />
   );

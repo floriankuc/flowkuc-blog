@@ -25,6 +25,7 @@
     "react/no-string-refs": ["error", { "noTemplateLiterals": true }],
     "react/require-render-return": 1,
     "react/no-is-mounted": 2,
-    "react/self-closing-comp": ["error", { "component": true, "html": true }]
+    "react/self-closing-comp": ["error", { "component": true, "html": true }],
+    "@typescript-eslint/no-var-requires": 0
   }
 }

@@ -20,7 +20,7 @@ module.exports = {
       resolve: "gatsby-transformer-remark",
     },
   ],
-}
+};
 
 // Chris Lau
 // Chris Lau
