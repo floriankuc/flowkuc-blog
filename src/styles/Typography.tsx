@@ -29,6 +29,11 @@ const Typography = (): ReactElement => {
           margin: 1rem 0 3.5rem 0;
         }
 
+        code,
+        code * {
+          font-family: monospace !important;
+        }
+
         .error {
           color: #ff2424;
           font-weight: 700;
