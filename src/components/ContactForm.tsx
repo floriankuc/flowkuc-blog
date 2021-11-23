@@ -8,6 +8,7 @@ import { validationSchema } from "../utils/validationSchema";
 import Button from "./Button";
 import Input from "./Input";
 import Email from "../icons/Email";
+import { mqMax } from "../utils/breakpoints";
 
 export interface ContactFormProps {
   sendEmail: (values: FormValues) => Promise<void>;
@@ -37,6 +38,10 @@ const ContactForm = React.forwardRef(
           color: ${theme.color.accent};
           font-weight: 700;
           margin-left: 20px;
+          ${mqMax.sm} {
+            margin-left: 0;
+            margin-top: 20px;
+          }
         `}
       >
         Thanks for your message!
@@ -83,6 +88,11 @@ const ContactForm = React.forwardRef(
               css={css`
                 display: flex;
                 align-items: center;
+
+                ${mqMax.sm} {
+                  flex-flow: column;
+                  align-items: flex-start;
+                }
               `}
             >
               <Button type="submit" loading={isLoading} icon={<Email />}>
