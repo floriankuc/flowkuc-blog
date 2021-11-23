@@ -12,17 +12,19 @@ const Layout = ({
   <>
     <GlobalStyles />
     <Container>
-      <Header />
-      <main
-        css={css`
-          padding: 50px 0;
-          flex: 1;
-          min-height: calc(100vh - 200px);
-        `}
-      >
-        {children}
-      </main>
-      <Footer />
+      <div style={{ padding: 200 }}>
+        <Header />
+        <main
+          css={css`
+            padding: 50px 0;
+            flex: 1;
+            min-height: calc(100vh - 200px);
+          `}
+        >
+          {children}
+        </main>
+        <Footer />
+      </div>
     </Container>
   </>
 );
