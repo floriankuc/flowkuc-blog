@@ -1,48 +1,58 @@
+/** @jsx jsx */
 import React, { ReactElement } from "react";
 import { graphql, useStaticQuery } from "gatsby";
-import Layout from "../components/Layout";
-import { Link } from "gatsby";
+import Post from "../components/Post";
+import { jsx, css } from "@emotion/react";
+import Seo from "./Seo";
 
-const BlogPage = (): ReactElement => {
-  const query = useStaticQuery(graphql`
-    query {
-      allMarkdownRemark {
-        edges {
-          node {
-            frontmatter {
-              title
-              date
-            }
-            fields {
-              slug
-            }
+const allBlogPostsQuery = graphql`
+  {
+    allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }) {
+      edges {
+        node {
+          frontmatter {
+            title
+            date
             excerpt
+          }
+          fields {
+            slug
           }
         }
       }
     }
-  `);
+  }
+`;
+
+const BlogPage = (): ReactElement => {
+  const {
+    allMarkdownRemark: { edges },
+  } = useStaticQuery(allBlogPostsQuery);
+
   return (
     <>
+      <Seo title="Blog" />
       <h1>Blog</h1>
       <p>
-        Some of the plentiful problems I encounter as a developer aren't
-        necessarily always presented on the web in the thorough fashion I'd love
-        to see. If I find anything worth sharing you'll find my take on a post
-        about it below.
+        If I find anything worth sharing and/or elaborating you'll find my take
+        on a post about it below.
       </p>
-      <ul>
-        {query.allMarkdownRemark.edges.map((edge: any) => {
-          return (
-            <li key={edge.node.frontmatter.title}>
-              <Link to={`/blog/${edge.node.fields.slug}`}>
-                <h2>{edge.node.frontmatter.title}</h2>
-                <p>{edge.node.frontmatter.date}</p>
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
+      <div
+        css={css`
+          margin: 32px 0;
+        `}
+      >
+        {edges.map((edge: any, i: number, src: []) => (
+          <Post
+            key={edge.node.frontmatter.title}
+            title={edge.node.frontmatter.title}
+            date={new Date(edge.node.frontmatter.date)}
+            slug={edge.node.fields.slug}
+            excerpt={edge.node.frontmatter.excerpt}
+            divider={!(i === src.length - 1)}
+          />
+        ))}
+      </div>
     </>
   );
 };

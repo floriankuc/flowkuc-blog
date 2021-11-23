@@ -4,19 +4,33 @@ import styled from "@emotion/styled";
 import { graphql, useStaticQuery } from "gatsby";
 import { ReactElement } from "react";
 import { theme } from "../styles/theme";
-import { FOOTERLINKS } from "../content/links";
+import { FOOTERLINKS, LinkType } from "../content/links";
 
-const Footer = (): ReactElement => {
-  const data = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          title
-          author
-        }
+const footerQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        title
+        author
       }
     }
-  `);
+  }
+`;
+
+const Footer = (): ReactElement => {
+  const {
+    site: {
+      siteMetadata: { author },
+    },
+  } = useStaticQuery(footerQuery);
+
+  const renderFooterLinks = (links: LinkType[]): ReactElement[] => {
+    return links.map(({ title, to, icon }) => (
+      <StyledLink key={title} href={to}>
+        {icon}
+      </StyledLink>
+    ));
+  };
 
   return (
     <StyledFooter>
@@ -25,13 +39,9 @@ const Footer = (): ReactElement => {
           margin-bottom: 8px;
         `}
       >
-        {FOOTERLINKS.map(link => (
-          <StyledLink key={link.title} href={link.to}>
-            {link.icon}
-          </StyledLink>
-        ))}
+        {renderFooterLinks(FOOTERLINKS)}
       </div>
-      © {new Date().getFullYear()}, {data.site.siteMetadata.author}
+      © {new Date().getFullYear()}, {author}
     </StyledFooter>
   );
 };

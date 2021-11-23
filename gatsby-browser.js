@@ -3,7 +3,7 @@ import React from "react";
 import { ThemeProvider } from "@emotion/react";
 import { theme } from "./src/styles/theme";
 import Layout from "./src/components/Layout";
-import "prismjs/themes/prism-tomorrow.css";
+import "prism-themes/themes/prism-darcula.min.css";
 
 export const wrapRootElement = ({ element }) => (
   <ThemeProvider theme={theme}>

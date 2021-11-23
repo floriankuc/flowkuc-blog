@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx, css } from "@emotion/react";
 import styled from "@emotion/styled";
-import React, { ReactElement } from "react";
+import React, { ReactElement, ReactNode } from "react";
 import ExternalLink from "../icons/ExternalLink";
 import Github from "../icons/Github";
 import { theme } from "../styles/theme";
@@ -22,6 +22,13 @@ const Project = ({
   gh_url,
   web_url,
 }: ProjectProps): ReactElement => {
+  const renderTopics = (topics: string[]): ReactElement => (
+    <TechTags tags={topics} small />
+  );
+  const renderIconLink = (url: string, icon: ReactNode): ReactElement => (
+    <StyledLink href={url}>{icon}</StyledLink>
+  );
+
   return (
     <div
       css={css`
@@ -40,9 +47,9 @@ const Project = ({
           padding: 10px;
         `}
       >
-        <h2 style={{ fontWeight: 700 }}>{name}</h2>
+        <h3>{name}</h3>
         <p>{description}</p>
-        {topics && topics.length > 0 && <TechTags tags={topics} small />}
+        {topics && topics.length > 0 && renderTopics(topics)}
       </div>
       <div
         css={css`
@@ -50,16 +57,8 @@ const Project = ({
           flex-flow: column;
         `}
       >
-        {gh_url && (
-          <StyledLink href={gh_url}>
-            <Github />
-          </StyledLink>
-        )}
-        {web_url && (
-          <StyledLink href={web_url}>
-            <ExternalLink />
-          </StyledLink>
-        )}
+        {gh_url && renderIconLink(gh_url, <Github />)}
+        {web_url && renderIconLink(web_url, <ExternalLink />)}
       </div>
     </div>
   );

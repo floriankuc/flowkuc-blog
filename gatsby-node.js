@@ -1,26 +1,26 @@
 /* eslint-disable */
-const path = require("path")
+const path = require("path");
 //for gatsby api
 //gatsby api reference node apis
 
 module.exports.onCreateNode = ({ node, actions }) => {
-  const { createNodeField } = actions
+  const { createNodeField } = actions;
 
   if (node.internal.type === "MarkdownRemark") {
-    const slug = path.basename(node.fileAbsolutePath, ".md")
+    const slug = path.basename(node.fileAbsolutePath, ".md");
 
     createNodeField({
       node,
       name: "slug",
       value: slug,
-    })
+    });
   }
-}
+};
 
 module.exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions
+  const { createPage } = actions;
 
-  const blogTemplate = path.resolve("./src/templates/Blog.tsx")
+  const blogTemplate = path.resolve("./src/templates/Post.tsx");
 
   const res = await graphql(`
     query {
@@ -34,7 +34,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
         }
       }
     }
-  `)
+  `);
 
   res.data.allMarkdownRemark.edges.forEach(edge => {
     createPage({
@@ -43,6 +43,6 @@ module.exports.createPages = async ({ graphql, actions }) => {
       context: {
         slug: edge.node.fields.slug,
       },
-    })
-  })
-}
+    });
+  });
+};

@@ -1,3 +1,5 @@
+/** @jsx jsx */
+import { jsx, css } from "@emotion/react";
 import React, { PropsWithChildren, ReactElement, ReactNode } from "react";
 import GlobalStyles from "../styles/GlobalStyles";
 import Container from "./Container";
@@ -6,27 +8,23 @@ import Header from "./Header";
 
 const Layout = ({
   children,
-}: PropsWithChildren<{ children: ReactNode }>): ReactElement => {
-  return (
-    <>
-      <GlobalStyles />
-      <Container>
-        <Header />
-        <main
-          style={{
-            padding: "50px 0",
-            flex: 1,
-            minHeight: "calc(100vh - 200px)",
-          }}
-        >
-          {children}
-        </main>
-        <Footer />
-      </Container>
-    </>
-  );
-};
+}: PropsWithChildren<{ children: ReactNode }>): ReactElement => (
+  <>
+    <GlobalStyles />
+    <Container>
+      <Header />
+      <main
+        css={css`
+          padding: 50px 0;
+          flex: 1;
+          min-height: calc(100vh - 200px);
+        `}
+      >
+        {children}
+      </main>
+      <Footer />
+    </Container>
+  </>
+);
 
 export default Layout;
-
-//change the 'develop' command to "env-cmd -f .env.development gatsby develop"

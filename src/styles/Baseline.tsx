@@ -39,13 +39,21 @@ const Baseline = (): ReactElement => (
       }
 
       hr {
-        height: 2px;
-        color: ${theme.color.secondary};
+        height: 3px;
         margin: 52px 0;
+        border: none;
+        background-color: ${theme.color.secondary};
+        border-radius: 1px;
       }
 
       svg {
         fill: #ffffff;
+      }
+
+      a,
+      button,
+      input {
+        transition: 0.07s ease-out;
       }
 
       a {

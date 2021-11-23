@@ -17,3 +17,10 @@ export const mq = Object.keys(queries).reduce<
   acc[cur] = `@media (min-width: ${queries[cur]}px)`;
   return acc;
 }, {});
+
+export const mqMax = Object.keys(queries).reduce<
+  Record<keyof typeof queries, string>
+>((acc, cur) => {
+  acc[cur] = `@media (max-width: ${queries[cur]}px)`;
+  return acc;
+}, {});

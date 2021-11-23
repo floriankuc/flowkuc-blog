@@ -1,9 +1,8 @@
 /** @jsx jsx */
-import { css, jsx } from "@emotion/react";
+import { jsx } from "@emotion/react";
 import React, { PropsWithChildren, ReactElement, ReactNode } from "react";
 import BounceLoader from "react-spinners/BounceLoader";
 import { theme } from "../styles/theme";
-import Email from "../icons/Email";
 import styled from "@emotion/styled";
 
 export interface Button {
@@ -19,20 +18,18 @@ const Button = ({
   loading,
   type = "submit",
   icon,
-}: PropsWithChildren<Button>): ReactElement => {
-  return (
-    <StyledButton disabled={disabled || loading} type={type}>
-      <div>
-        {icon && loading ? (
-          <BounceLoader size={24} color={theme.color.accent} />
-        ) : (
-          icon
-        )}
-        {children}
-      </div>
-    </StyledButton>
-  );
-};
+}: PropsWithChildren<Button>): ReactElement => (
+  <StyledButton disabled={disabled || loading} type={type}>
+    <div>
+      {icon && loading ? (
+        <BounceLoader size={24} color={theme.color.accent} />
+      ) : (
+        icon
+      )}
+      {children}
+    </div>
+  </StyledButton>
+);
 
 export default Button;
 
@@ -49,6 +46,7 @@ const StyledButton = styled.button`
       background-color: ${theme.color.accent};
     }
   }
+
   &:disabled {
     background-color: ${theme.color.secondary};
 

@@ -4,13 +4,13 @@ import React, { ReactElement } from "react";
 import Loading from "../components/Loading";
 import Project from "../components/Project";
 import { FOOTERLINKS } from "../content/links";
-import { ProjectType, useProjectsApi } from "../hooks/useProjectsApi";
+import { ProjectType, useProjectsApi } from "../hooks/useProjects";
+import Seo from "./Seo";
 
 const Projects = (): ReactElement => {
   const { value: projects, isSuccess, isLoading } = useProjectsApi();
 
   const renderProjects = (projects: ProjectType[]): ReactElement[] => {
-    console.log("projects", projects);
     return projects.map(
       ({ name, id, description, topics, html_url, homepage }) => (
         <Project
@@ -28,6 +28,7 @@ const Projects = (): ReactElement => {
   if (isSuccess && projects.length) {
     return (
       <>
+        <Seo title="Projects" />
         <h1>Projects</h1>
         <div
           css={css`

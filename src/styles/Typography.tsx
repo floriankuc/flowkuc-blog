@@ -1,5 +1,6 @@
+import { css, Global } from "@emotion/react";
 import React, { ReactElement } from "react";
-import { Global, css } from "@emotion/react";
+import { mqMax } from "../utils/breakpoints";
 import { theme } from "./theme";
 
 const Typography = (): ReactElement => {
@@ -27,6 +28,23 @@ const Typography = (): ReactElement => {
           font-size: 4rem;
           font-weight: 900;
           margin: 1rem 0 3.5rem 0;
+
+          ${mqMax.sm} {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin: 0 0 2rem 0;
+          }
+        }
+
+        h2 {
+          font-size: 2rem;
+          font-weight: 900;
+          margin-bottom: 32px;
+        }
+
+        h3 {
+          font-size: 1.8rem;
+          font-weight: 700;
         }
 
         code,

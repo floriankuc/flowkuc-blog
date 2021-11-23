@@ -13,7 +13,12 @@ const activeStyles = {
 const Header = (): ReactElement => {
   const renderLinks = (links: LinkType[]): ReactElement[] => {
     return links.map(({ to, title }) => (
-      <StyledLink to={to} key={title} activeStyle={activeStyles}>
+      <StyledLink
+        to={to}
+        key={title}
+        activeStyle={activeStyles}
+        partiallyActive={title === "Blog"}
+      >
         {title}
       </StyledLink>
     ));
@@ -21,15 +26,15 @@ const Header = (): ReactElement => {
 
   return (
     <header
-      style={{
-        position: "sticky",
-        top: 0,
-        height: 100,
-        display: "flex",
-        justifyContent: "flex-end",
-        alignItems: "center",
-        backgroundColor: theme.color.primary,
-      }}
+      css={css`
+        position: sticky;
+        top: 0;
+        height: 100px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        background-color: ${theme.color.primary};
+      `}
     >
       {renderLinks(NAVLINKS)}
     </header>
