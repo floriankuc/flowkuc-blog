@@ -10,8 +10,9 @@ const Container = ({
     css={css`
       display: flex;
       flex-flow: column;
-      margin: 0 auto;
-      width: 90%;
+      padding: 0 300px;
+      /* margin: 0 auto; */
+      /* width: 90%;
       min-height: 100%;
       ${[mq.md]} {
         width: 80%;
@@ -27,7 +28,7 @@ const Container = ({
       }
       ${[mq.wow]} {
         width: 40%;
-      }
+      } */
     `}
   >
     {children}
