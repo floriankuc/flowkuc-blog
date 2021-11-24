@@ -1,6 +1,7 @@
 import React, { ReactElement } from "react";
 import { Global, css } from "@emotion/react";
 import { theme } from "./theme";
+import { mq } from "../utils/breakpoints";
 
 const Baseline = (): ReactElement => (
   <Global
@@ -77,6 +78,29 @@ const Baseline = (): ReactElement => (
       textarea,
       select {
         font: inherit;
+      }
+
+      .container {
+        display: flex;
+        flex-flow: column;
+        margin: 0 auto;
+        width: 90%;
+        min-height: 100%;
+        ${[mq.md]} {
+          width: 80%;
+        }
+        ${[mq.lg]} {
+          width: 70%;
+        }
+        ${[mq.xl]} {
+          width: 60%;
+        }
+        ${[mq.xxl]} {
+          width: 50%;
+        }
+        ${[mq.wow]} {
+          width: 40%;
+        }
       }
 
       @media (prefers-reduced-motion: reduce) {
