@@ -7,23 +7,27 @@ const Container = ({
   children,
 }: PropsWithChildren<ReactNode>): ReactElement => (
   <div
-    className={"container"}
-    // css={{
-    //     [mq.md]width: 80%;
+    css={{
+      padding: "0 20px",
+      // background: "red",
 
-    //     ${[mq.lg]} {
-    //       width: 70%;
-    //     }
-    //     ${[mq.xl]} {
-    //       width: 60%;
-    //     }
-    //     ${[mq.xxl]} {
-    //       width: 50%;
-    //     }
-    //     ${[mq.wow]} {
-    //       width: 40%;
-    //     }
-    // }}
+      [mq.md]: {
+        width: "80%",
+      },
+
+      [mq.lg]: {
+        width: "70%",
+      },
+      [mq.xl]: {
+        width: "60%",
+      },
+      [mq.xxl]: {
+        width: "50%",
+      },
+      [mq.wow]: {
+        width: "40%",
+      },
+    }}
     // css={css`
     //   display: flex;
     //   flex-flow: column;
