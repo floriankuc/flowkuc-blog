@@ -30,25 +30,6 @@ const Layout = ({
   <>
     <GlobalStyles />
     <Container>
-      {/* <div
-      css={css`
-        ${[mq.md]} {
-          width: 80%;
-        }
-        ${[mq.lg]} {
-          width: 70%;
-        }
-        ${[mq.xl]} {
-          width: 60%;
-        }
-        ${[mq.xxl]} {
-          width: 50%;
-        }
-        ${[mq.wow]} {
-          width: 40%;
-        }
-      `}
-    > */}
       <Header />
       <main
         css={css`
@@ -61,7 +42,6 @@ const Layout = ({
       </main>
       <Footer />
     </Container>
-    {/* </div> */}
   </>
 );
 
