@@ -10,13 +10,13 @@ import Header from "./Header";
 const Layout = ({
   children,
 }: PropsWithChildren<{ children: ReactNode }>): ReactElement => (
-  <div css={{ background: "red" }}>
+  <div>
     <GlobalStyles />
     {/* <Container> */}
     <div
       css={{
-        // marginLeft: "auto",
-        // marginRight: "auto",
+        marginLeft: "auto",
+        marginRight: "auto",
         width: "70%",
         // [mq.md]: {
         //   width: "80%",
