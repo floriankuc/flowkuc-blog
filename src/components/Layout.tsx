@@ -10,7 +10,7 @@ import Header from "./Header";
 const Layout = ({
   children,
 }: PropsWithChildren<{ children: ReactNode }>): ReactElement => (
-  <>
+  <div css={{ background: "red" }}>
     <GlobalStyles />
     {/* <Container> */}
     <div
@@ -49,7 +49,7 @@ const Layout = ({
       <Footer />
     </div>
     {/* </Container> */}
-  </>
+  </div>
 );
 
 export default Layout;
