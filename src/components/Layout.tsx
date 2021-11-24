@@ -6,24 +6,7 @@ import { mq } from "../utils/breakpoints";
 import Container from "./Container";
 import Footer from "./Footer";
 import Header from "./Header";
-/* margin: 0 auto; */
-/* width: 90%;
-      min-height: 100%;
-      ${[mq.md]} {
-        width: 80%;
-      }
-      ${[mq.lg]} {
-        width: 70%;
-      }
-      ${[mq.xl]} {
-        width: 60%;
-      }
-      ${[mq.xxl]} {
-        width: 50%;
-      }
-      ${[mq.wow]} {
-        width: 40%;
-      } */
+
 const Layout = ({
   children,
 }: PropsWithChildren<{ children: ReactNode }>): ReactElement => (
@@ -32,12 +15,12 @@ const Layout = ({
     {/* <Container> */}
     <div
       css={{
-        marginLeft: "auto",
-        marginRight: "auto",
-        width: "90vw",
-        [mq.md]: {
-          width: "80vw",
-        },
+        // marginLeft: "auto",
+        // marginRight: "auto",
+        width: "70%",
+        // [mq.md]: {
+        //   width: "80%",
+        // },
 
         // [mq.lg]: {
         //   width: "70%",
