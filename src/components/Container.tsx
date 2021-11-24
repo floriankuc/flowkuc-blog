@@ -10,11 +10,11 @@ const Container = ({
     css={{
       marginLeft: "auto",
       marginRight: "auto",
-      width: "70%",
+      width: "90vw",
 
-      // [mq.md]: {
-      //   width: "80%",
-      // },
+      [mq.md]: {
+        // padding: "0 100px",
+      },
 
       // [mq.lg]: {
       //   width: "70%",
