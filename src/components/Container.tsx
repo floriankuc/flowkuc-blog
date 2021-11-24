@@ -11,9 +11,8 @@ const Container = ({
       marginLeft: "auto",
       marginRight: "auto",
       width: "90vw",
-
       [mq.md]: {
-        // padding: "0 100px",
+        width: "80vw",
       },
 
       // [mq.lg]: {

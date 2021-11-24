@@ -29,7 +29,30 @@ const Layout = ({
 }: PropsWithChildren<{ children: ReactNode }>): ReactElement => (
   <>
     <GlobalStyles />
-    <Container>
+    {/* <Container> */}
+    <div
+      css={{
+        marginLeft: "auto",
+        marginRight: "auto",
+        width: "90vw",
+        [mq.md]: {
+          width: "80vw",
+        },
+
+        // [mq.lg]: {
+        //   width: "70%",
+        // },
+        // [mq.xl]: {
+        //   width: "60%",
+        // },
+        // [mq.xxl]: {
+        //   width: "50%",
+        // },
+        // [mq.wow]: {
+        //   width: "40%",
+        // },
+      }}
+    >
       <Header />
       <main
         css={css`
@@ -41,7 +64,8 @@ const Layout = ({
         {children}
       </main>
       <Footer />
-    </Container>
+    </div>
+    {/* </Container> */}
   </>
 );
 
