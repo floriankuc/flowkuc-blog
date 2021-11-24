@@ -8,25 +8,23 @@ const Container = ({
 }: PropsWithChildren<ReactNode>): ReactElement => (
   <div
     css={{
-      marginLeft: "auto",
-      marginRight: "auto",
-      width: "90vw",
+      margin: "0 auto",
+      width: "90%",
       [mq.md]: {
-        width: "80vw",
+        width: "80%",
       },
-
-      // [mq.lg]: {
-      //   width: "70%",
-      // },
-      // [mq.xl]: {
-      //   width: "60%",
-      // },
-      // [mq.xxl]: {
-      //   width: "50%",
-      // },
-      // [mq.wow]: {
-      //   width: "40%",
-      // },
+      [mq.lg]: {
+        width: "70%",
+      },
+      [mq.xl]: {
+        width: "60%",
+      },
+      [mq.xxl]: {
+        width: "50%",
+      },
+      [mq.wow]: {
+        width: "40%",
+      },
     }}
   >
     {children}
