@@ -86,7 +86,7 @@ const Baseline = (): ReactElement => (
         margin: 0 auto;
         width: 90%;
         min-height: 100%;
-        ${[mq.md]} {
+        /* ${[mq.md]} {
           width: 80%;
         }
         ${[mq.lg]} {
@@ -100,7 +100,7 @@ const Baseline = (): ReactElement => (
         }
         ${[mq.wow]} {
           width: 40%;
-        }
+        } */
       }
 
       @media (prefers-reduced-motion: reduce) {
