@@ -10,6 +10,7 @@ const Container = ({
     css={{
       padding: "0 20px",
       // background: "red",
+      margin: "0 auto",
 
       [mq.md]: {
         width: "80%",

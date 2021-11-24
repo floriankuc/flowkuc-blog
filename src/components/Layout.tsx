@@ -27,7 +27,7 @@ import Header from "./Header";
 const Layout = ({
   children,
 }: PropsWithChildren<{ children: ReactNode }>): ReactElement => (
-  <div style={{ display: "flex", justifyContent: "center" }}>
+  <>
     <GlobalStyles />
     <Container>
       {/* <div
@@ -62,7 +62,7 @@ const Layout = ({
       <Footer />
     </Container>
     {/* </div> */}
-  </div>
+  </>
 );
 
 export default Layout;
