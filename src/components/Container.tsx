@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, css } from "@emotion/react";
+import { jsx } from "@emotion/react";
 import { PropsWithChildren, ReactElement, ReactNode } from "react";
 import { mq } from "../utils/breakpoints";
 

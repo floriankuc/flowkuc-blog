@@ -56,7 +56,7 @@ const Projects = (): ReactElement => {
   } else if (isSuccess && !projects.length) {
     return <p>All my repos are currently private.</p>;
   } else {
-    return <p>Uh oh. Something went wrong.</p>;
+    return <></>;
   }
 };
 
