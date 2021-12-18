@@ -52,6 +52,15 @@ const Typography = (): ReactElement => {
           font-family: monospace !important;
         }
 
+        .post_body p {
+          margin-top: 1em;
+          margin-bottom: 1em;
+        }
+
+        .gatsby-highlight {
+          margin-bottom: 54px;
+        }
+
         .error {
           color: #ff2424;
           font-weight: 700;
