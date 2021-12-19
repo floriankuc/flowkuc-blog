@@ -25,8 +25,15 @@ const Post = ({ title, date, slug, excerpt, divider }: Post): ReactElement => (
       `}
     >
       <h3>{title}</h3>
+      <p
+        css={css`
+          font-style: italic;
+          margin-bottom: 1rem;
+        `}
+      >
+        {format(date, "PP")}
+      </p>
       <p>{excerpt}</p>
-      <p>{format(date, "PP")}</p>
     </div>
     {divider && (
       <hr
