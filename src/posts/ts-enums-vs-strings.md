@@ -86,4 +86,4 @@ console.log(Direction.Up === "UP"); // true
 
 ### TLDR
 
-The type safety remains, so does the auto completion. The verbosity depends on how the enum was coded and what it represents. The handling is much more convenient. Much like the verbosity the layer of abstraction the enum provides is argueably important depending on what type needs to represent. Both enums and string unions have their use cases for slightly different development experiences.
+The type safety remains, so does the auto completion. The verbosity depends on how the enum was coded and what it represents. The handling is much more convenient. Much like the verbosity the layer of abstraction the enum provides is argueably important depending on what type it needs to represent. Both enums and string unions have their use cases for slightly different development experiences.
