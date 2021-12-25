@@ -19,8 +19,26 @@ const Post = ({ title, date, slug, excerpt, divider }: Post): ReactElement => (
       css={css`
         padding: 20px 0;
         border-radius: 2px;
-        &:hover h3 {
-          color: ${theme.color.accent};
+        position: relative;
+
+        &:after {
+          content: "";
+          transition: 0.15s ease-in-out;
+          position: absolute;
+          width: 2px;
+          height: 0;
+          top: 0;
+          left: -6px;
+          background-color: ${theme.color.accent};
+        }
+
+        &:hover {
+          &:after {
+            height: 100%;
+          }
+          h3 {
+            color: ${theme.color.accent};
+          }
         }
       `}
     >

@@ -5,6 +5,7 @@ import React, { ReactElement, ReactNode } from "react";
 import ExternalLink from "../icons/ExternalLink";
 import Github from "../icons/Github";
 import { theme } from "../styles/theme";
+import { capitalise, pipe, unhyphen } from "../utils/helpers";
 import TechTags from "./TechTags";
 
 export interface ProjectProps {
@@ -25,9 +26,12 @@ const Project = ({
   const renderTopics = (topics: string[]): ReactElement => (
     <TechTags tags={topics} small />
   );
+
   const renderIconLink = (url: string, icon: ReactNode): ReactElement => (
     <StyledLink href={url}>{icon}</StyledLink>
   );
+
+  const formatName = (name: string): string => pipe(unhyphen, capitalise)(name);
 
   return (
     <div
@@ -47,7 +51,7 @@ const Project = ({
           padding: 10px;
         `}
       >
-        <h3>{name}</h3>
+        <h3>{name && formatName(name)}</h3>
         <p>{description}</p>
         {topics && topics.length > 0 && renderTopics(topics)}
       </div>
@@ -70,6 +74,9 @@ const StyledLink = styled.a`
   margin: 8px;
 
   &:hover {
+    &:after {
+      width: 0;
+    }
     box-shadow: none;
     svg {
       fill: ${theme.color.accent};

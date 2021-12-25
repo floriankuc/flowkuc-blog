@@ -47,9 +47,24 @@ const StyledLink = styled(Link)`
   font-size: 1.4rem;
   font-weight: 900;
   margin-right: 32px;
+  position: relative;
+
+  &:after {
+    position: absolute;
+    transition: 0.15s ease-in-out;
+    content: "";
+    width: 0;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    background: ${theme.color.accent};
+  }
 
   &:hover {
-    box-shadow: inset 0 -2px 0 0 ${theme.color.accent};
+    &:after {
+      width: 100%;
+    }
   }
 `;
+
 export default Header;
