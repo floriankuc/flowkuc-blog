@@ -38,12 +38,13 @@ const StyledButton = styled.button`
   padding: 8px;
   border: none;
   border-radius: 2px;
+  position: relative;
 
   &:not([disabled]) {
     &:hover,
     &:active {
       cursor: pointer;
-      background-color: ${theme.color.accent};
+      outline: 4px solid ${theme.color.accent};
     }
   }
 

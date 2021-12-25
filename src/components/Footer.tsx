@@ -26,7 +26,7 @@ const Footer = (): ReactElement => {
 
   const renderFooterLinks = (links: LinkType[]): ReactElement[] => {
     return links.map(({ title, to, icon }) => (
-      <StyledLink key={title} href={to}>
+      <StyledLink key={title} href={to} className="iconlink">
         {icon}
       </StyledLink>
     ));
@@ -50,6 +50,10 @@ const StyledLink = styled.a`
   margin: 8px;
 
   &:hover {
+    &:after {
+      width: 0;
+    }
+
     box-shadow: none;
     svg {
       fill: ${theme.color.accent};

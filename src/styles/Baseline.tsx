@@ -53,17 +53,32 @@ const Baseline = (): ReactElement => (
 
       a,
       button,
-      input {
-        transition: 0.07s ease-out;
+      input,
+      textarea {
+        transition: 0.1s ease-out;
       }
 
       a {
         color: ${theme.color.accent};
         text-decoration: none;
         font-weight: 700;
+        position: relative;
+
+        &:after {
+          position: absolute;
+          transition: 0.15s ease-in-out;
+          content: "";
+          width: 0;
+          left: 0;
+          bottom: 0;
+          height: 2px;
+          background: ${theme.color.accent};
+        }
 
         &:hover {
-          box-shadow: inset 0 -3px 0 0 ${theme.color.accent};
+          &:after {
+            width: 100%;
+          }
         }
       }
 

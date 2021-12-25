@@ -44,6 +44,9 @@ const Post = (props: PostTemplateProps): ReactElement => {
           align-self: flex-end;
           &:hover {
             box-shadow: none;
+            &:after {
+              width: 0;
+            }
             & > svg {
               fill: ${theme.color.accent};
             }
